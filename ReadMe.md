@@ -1,6 +1,6 @@
 # Paragon
 Paragon Control Software
-this is an attempt to port the control software for the Ten-Tec Paragon written in MS Basic for the IBM PC to C.
+this is an attempt to port the control software for the Ten-Tec Paragon written in MS Basic for the IBM PC to well it started out C but now is Python.
 
 It uses a 1200 8N1 serial connection without hardware handshaking. 
 
