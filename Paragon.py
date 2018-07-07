@@ -5,17 +5,12 @@
 #import serial
 import serial
 
-#import time&sleep
+#import
 from time import sleep
-
-#import OS
 import os
 
-#specify serial port
-print('Chose a serial port')
-
 #list serial ports
-os.system('ls /dev/tty*')
+os.system('ls /dev/tty*S*')
 
 #input saved here
 serVar = input()
@@ -27,7 +22,7 @@ ser = serial.Serial(
     bytesize=serial.EIGHTBITS,
     parity=serial.PARITY_NONE,
     stopbits=serial.STOPBITS_ONE,
-    timeout=None,
+    timeout=30, #need to find correct time for this
     rtscts=False,
     dsrdtr=False,
     write_timeout=2,
@@ -39,9 +34,11 @@ while True:
     data = ser.read(9999)
     if len(data) > 0:
         print('Paragon active', data)
-
-    sleep(1)
-    print ('Ready')
+        sleep(1)
+        print('Ready')
+    else:
+        print('No connection, check cable. Exiting')
+        raise SystemExit
 
 #clear screen before logo
 os.system('clear')
