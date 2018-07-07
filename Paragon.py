@@ -21,20 +21,19 @@ os.system('ls /dev/tty*')
 serVar = input()
 
 #Open Serial Port
-with serial.Serial() as ser:
-   # ser.port = 'serVar'
-    ser.baudrate = 1200
-    ser.bytesize = EIGHTBITS
-    ser.parity = PARITY_NONE
-    ser.stopbits = STOPBITS_ONE
-    ser.timeout = None
-    ser.rtscts = False
-    ser.dsrdtr = False
-    ser.write_timeout = 2
-    ser.inter_byte_timeout = None
-    ser.exclusive = True
-    ser.port = 'serVar'
-    ser.open()
+ser = serial.Serial(
+    port=serVar,
+    baudrate=1200,
+    bytesize=serial.EIGHTBITS,
+    parity=serial.PARITY_NONE,
+    stopbits=serial.STOPBITS_ONE,
+    timeout=None,
+    rtscts=False,
+    dsrdtr=False,
+    write_timeout=2,
+    inter_byte_timeout=None,
+    exclusive=True
+)
 
 while True:
     data = ser.read(9999)
