@@ -34,8 +34,8 @@ with serial.Serial() as ser:
     ser.inter_byte_timeout = None
     ser.exclusive = True
     ser.port = 'serVar'
-    open()
-    
+    ser.open()
+
 while True:
     data = ser.read(9999)
     if len(data) > 0:
