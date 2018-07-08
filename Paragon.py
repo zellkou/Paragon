@@ -8,9 +8,12 @@ import serial
 #import
 from time import sleep
 import os
+import mainMenu.py
 
 #list serial ports
 os.system('ls /dev/tty*S*')
+
+print('Choose Serial Port')
 
 #input saved here
 serVar = input()
@@ -60,6 +63,4 @@ sleep(10)
 os.system('clear')
 
 #Main Menu
-
-
 
