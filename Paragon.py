@@ -9,6 +9,7 @@ import serial
 from time import sleep
 import os
 import mainMenu
+import routines
 
 #list serial ports
 os.system('ls /dev/tty*S*')
