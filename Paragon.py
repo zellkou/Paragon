@@ -8,7 +8,7 @@ import serial
 #import
 from time import sleep
 import os
-import mainMenu.py
+import mainMenu
 
 #list serial ports
 os.system('ls /dev/tty*S*')
@@ -46,21 +46,11 @@ while True:
 #clear screen before logo
 os.system('clear')
 
-# logo
-
-print("TEN-TEC Paragon Serial Interface Control Program")
-print("Copyright 1988")
-print("By")
-print("TEN-TEC, Inc.")
-print("Ported to Python")
-print("By")
-print("KK4VFU")
-print("Python 3 Version") #add date when finished
+#call mainmenu MaLo
 sleep(10)
 
 #clear sceen before main menu
-
 os.system('clear')
 
-#Main Menu
-
+#call mainmenu Main
+MaiRou()

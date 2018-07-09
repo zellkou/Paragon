@@ -1,4 +1,4 @@
-#Menu Class
+ma#Menu Class
 
 class Menu:
     maMe = "M -- Return To Main Menu"
@@ -44,7 +44,7 @@ class Menu:
         print('3 -- 1.8 Khz')
         print('4 -- 0.50 Khz')
         print('5 -- 0.25 Khz')
-        print('M -- Return to Main Menu')
+        print(M)
         print('Select Desired Filter')
     def AuxDis():  #Main Menu 5
         print('Aux. Display Menu')
@@ -52,15 +52,15 @@ class Menu:
         print('1 -- Time')
         print('2 -- Alpha Tag')
         print('3 -- Date')
-        print('M -- Return To Main Menu')
+        print(M)
         print('Select Desired Aux. Display')
     def VF0(): #Main Menu 6
         print('VFO Control Functions')
         print('1 -- Change VFOs')
         print('2 -- Set VFOs Equal')
         print('3 -- Change Split Mode')
-        print('M -- Return To Main Menu')
-        print('Select Desired Function')
+        print(M)
+        print(SeDe)
     def Memory(): #Main Menu 7
         print('Memory Functions Menu')
         print('1 -- Memory Store')
@@ -68,22 +68,22 @@ class Menu:
         print('3 -- Memory Lockout')
         print('4 -- Memory Clear')
         print('5 -- Memory Tune')
-        print('M -- Return To Main Menu')
-        print('Select Desired Function')
+        print(M)
+        print(SeDe)
     def MemLoc(): #Main Menu 7 #Memory Menu  3
         print('Memory Lock/Unlock Menu')
         print('1 -- Lock Out Selected Memory Channel')
         print('2 -- Unlock Selected Memory Channel')
         print('3 -- Lock Out All Memory Channels')
         print('4 -- Unlock All Memory Channels')
-        print('M -- Return to Main Menu')
-        print('Select Desired Function')
+        print(M)
+        print(SeDe)
     def MemTun(): # Main Menu 7 #Memory Menu 5
         print('Memory Tune Menu')
         print('Left Cursor -- Memory Tune Down')
         print('Right Cursor -- Memory Tune Up')
-        print('M -- Return To Main Menu')
-        print('Select Desired Function')
+        print(M)
+        print(SeDe)
     def AuxFun(): # Main Menu 9
         print('Aux. Functions Select Menu')
         print('1 -- RX Offset curRxoffVar') #need variable here
@@ -97,8 +97,8 @@ class Menu:
         print('9 -- Display Radio Status')
         print('Left Cursor -- unkVar0 Down') #unknown variable 0 I believe it's tuning size 100khz or 1mhz
         print('Right Cursor -- unkVar0 Up') #ditto
-        print('M -- Return To Main Menu')
-        print('Select Desired Function')
+        print(M)
+        print(SeDe)
     def MemLoa(): # Main Menu L/S
         print('Memory Load/Save Menu')
         print('1 -- Display Memory Table')
@@ -106,9 +106,9 @@ class Menu:
         print('3 -- Load Paragon Memories')
         print('4 -- Get New Disk File')
         print('5 -- Save Memory Table To Disk')
-        print('M -- Return To Main Menu')
-        print('Select Desired Function')
-    def MemEdi(): #Main Menu L/S #MemLoa 2
+        print(M)
+        print(SeDe)
+    def MemEdi(): #Main Menu E  #MemLoa 2 
         print('Memory Edit Menu')
         print('1 -- Frequency')
         print('2 -- Alpha Tag')
@@ -116,5 +116,16 @@ class Menu:
         print('4 -- Crystal Filter')
         print('N -- Next Memory To Edit')
         print('P -- Go To Memory Load/Save Menu')
-        print('M -- Return to Main Menu')
+        print(M)
         print('Select Item To Edit')
+
+class Logos:
+    def MaLo():
+        print("TEN-TEC Paragon Serial Interface Control Program")
+        print("Copyright 1988")
+        print("By")
+        print("TEN-TEC, Inc.")
+        print("Ported to Python")
+        print("By")
+        print("KK4VFU")
+        print("Python 3 Version") #add date when finished
