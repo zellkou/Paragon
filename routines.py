@@ -14,33 +14,31 @@ class menRou:
         if maMeVar = '1':
             #goto freq routine #menu still needed for this
         elif maMeVar = '2':
-            ModRou() #goto mode routine
+            modRou()
         elif maMeVar = '3':
-            FilRou() #goto filter routine
+            ilRou()
         elif maMeVar = '4':
             #goto alpha tag rount #menu still needed
         elif maMeVar = '5':
-            AuxDisRou() #goto auxdis routine
+            auxDisRou() #goto auxdis routine
         elif maMeVar = '6':
             vfoRou() #goto vfo routine
         elif maMeVar = '7':
-            MemRou() # goto memory routine
+            memRou() # goto memory routine
         elif maMeVar = '8':
             #goto display radio status #menu still needed
         elif maMeVar = '9':
-           AuxFunRou() #goto auxfun routine
+           auxFunRou() #goto auxfun routine
         elif maMeVar = 'C' or 'c':
             del maMeVar
             os.system('clear')
-            MaiRou()
+            maiRou()
         elif maMeVar = 'D':
             #goto mem table display routine #menu still needed
         elif maMeVar = 'E' or 'e':
-            MemEdiRou() #goto memedi routine
-        elif maMeVar =  'L' or 'l':
-            MemLoaRou() #goto memloa routine
-        elif memMeVar = 'S' or 's':
-            MemLoaRou() #goto memloa routine
+            memEdiRou()
+        elif maMeVar =  'L' or 'l' or 'S' or 's':
+            memLoaRou()
         elif meMeVar = 'X' or 'x':
            raise SystemExit
         elif meMeVar = '\x1b[D': #left arrow - down
@@ -55,48 +53,48 @@ class menRou:
 ###########Mode routine
     def modRou():
         Mode()
-        moMeVar = input()
-        if moMeVar = '1':
+        modVar = input()
+        if modVar = '1':
             #tune routine #menu still needed
-        elif moMeVar = '2'
+        elif modVar = '2'
             #mod set cw routine
-        elif moMeVar = '3':
+        elif modVar = '3':
             #mod set usb routine
-        elif moMeVar = '4':
+        elif modVar = '4':
             #mod set lsb routine
-        elif moMeVar = '5':
+        elif modVar = '5':
             #mod set am routine
-        elif moMeVar = '6':
+        elif modVar = '6':
             #mod set fm routine
-        elif moMeVar = '7':
+        elif modVar = '7':
             #mod set rtty routine
-        elif moMeVar = 'M' or 'm':
-            del moMeVar
+        elif modVar = 'M' or 'm':
+            del modVar
             maiRou()
         else:
-            del moMeVar
+            del modVar
             inNoRe()
             sleep(5)
             modRou()
 ###########filter routine
     def filRou():
         Filter()
-        filMeVar = input()
-        if filMeVar = '1':
+        filVar = input()
+        if filVar = '1':
             #fil set 6.0 routine
-        elif filMeVar = '2':
+        elif filVar = '2':
             #fil set 2.4 routine
-        elif filMeVar = '3':
+        elif filVar = '3':
             #fil set 1.8 routine
-        elif filMeVar = '4':
+        elif filVar = '4':
             #fil set .50 routine
-        elif filMeVar = '5':
+        elif filVar = '5':
             #fil set .25 routine
-        elif filMeVar = 'M' or 'm':
-            del filMeVar
+        elif filVar = 'M' or 'm':
+            del filVar
             maiRou()
         else:
-            del filMeVar
+            del filVar
             inNoRE()
             sleep(5)
             filRou()

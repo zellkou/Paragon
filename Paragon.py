@@ -38,8 +38,8 @@ while True:
     data = ser.read(9999)
     if len(data) > 0:
         print('Paragon active', data)
-        sleep(1)
-        print('Ready')
+    sleep(1)
+    print('Ready')
     else:
         print('No connection, check cable. Exiting')
         raise SystemExit
