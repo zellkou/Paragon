@@ -42,9 +42,9 @@ class menRou:
         elif meMeVar = 'X' or 'x':
            raise SystemExit
         elif meMeVar = '\x1b[D': #left arrow - down
-            #goto tune freq routine #menu still needed
+            tunDowRou()
         elif meMeVar = '\x1b[C': #right arrow - up
-            #goto tune freq routine #menu still needed
+            tunUpRou()
         else:
             del meMeVar
             inNoRe()
@@ -55,19 +55,17 @@ class menRou:
         Mode()
         modVar = input()
         if modVar = '1':
-            #tune routine #menu still needed
+            tun()
         elif modVar = '2'
-            #mod set cw routine
+            cw()
         elif modVar = '3':
-            #mod set usb routine
+            usb()
         elif modVar = '4':
-            #mod set lsb routine
+            lsb()
         elif modVar = '5':
-            #mod set am routine
+            am()
         elif modVar = '6':
-            #mod set fm routine
-        elif modVar = '7':
-            #mod set rtty routine
+            fm()
         elif modVar = 'M' or 'm':
             del modVar
             maiRou()
@@ -81,15 +79,15 @@ class menRou:
         Filter()
         filVar = input()
         if filVar = '1':
-            #fil set 6.0 routine
+            60fil()
         elif filVar = '2':
-            #fil set 2.4 routine
+            24fil()
         elif filVar = '3':
-            #fil set 1.8 routine
+            18fil()
         elif filVar = '4':
-            #fil set .50 routine
+            50fil()
         elif filVar = '5':
-            #fil set .25 routine
+            25fil()
         elif filVar = 'M' or 'm':
             del filVar
             maiRou()
@@ -121,11 +119,11 @@ class menRou:
         VFO()
         vfoVar = input()
         if vfoVar = '1':
-            #change vfo routine
+            #change vfo A or B routine
         elif vfoVar = '2':
-            #set vfos equal routine
+            #set vfos equal a=b routine
         elif vfoVar = '3':
-            #change split mode routine
+            #change split mode a/=b routine
         elif vfoVar = 'M' or 'm':
             del vfoVar
             maiRou()
@@ -213,9 +211,9 @@ class menRou:
         elif auxFunVar = '4':
             #unsure what this is for the menu says 'voice'
         elif auxFunVar = '5':
-            #band down need routine
+            banDowRou()
         elif auxFunVar = '6':
-            #band up need routine
+            banUpRou()
         elif auxFunVar = '7':
             #set date need routine
         elif auxFunVar = '8':

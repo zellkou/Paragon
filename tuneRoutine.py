@@ -1,3 +1,4 @@
+###### frequency tuning routines
 class freq:
     def tunUpRou():
         ser.write('[')
@@ -16,16 +17,17 @@ class freq:
             print('Sending To Radio')
             ser.write(userInput)
             break
+###### band selection routines
 class band:
     def banUpRou():
         ser.write('Z')
     def banDowRou():
         ser.write('Y')
-
+###### fast/slow tuning routhine
 class fast:
     def fasRou():
         ser.write('G')
-
+###### transmission mode selection routines
 class transMode:
     def fm():
         ser.write('L')
@@ -39,7 +41,7 @@ class transMode:
         ser.write('P')
     def tun():
         ser.write('Q')
-
+###### filter selection  routines
 class filters:
     def 60fil():
         ser.write('R')
