@@ -1,0 +1,78 @@
+    PROGRAM DETAILS AND TIPS
+Below is listed information about key parts of the PARAGON program and how it communicates with the transceiver. This information should help you understand the program better and enable you to customize 
+the program for your particular needs.
+
+
+    1. Timing  Considerations As mentioned before, this program and the Model 258 Interface do not support any form of handshaking, due to memory constraints in the Model 585 PARAGONS's internal EPROM. 
+This means that software timing loops have to be used. The program you received has been tested and optimized for use on an IBM PC or compatible computer operating at 4.77 MHz. If you will be using this 
+program on a faster computer you will have to change the following program lines:
+
+    Line 2190: FOR T = 1 TO 200
+        Increase the "200" value to a proportionately hight vaule, depending on you computers clock speed. For example, on an 8 MHz computer the value should be 335 to 350.
+
+    Line 3150: FOR T = 1 TO 3000:NEXT T:RETURN
+        Increase the "3000" value to a proportionately higher value. For an 8 MHz computer this will typically be about 5000.
+
+    2. Command Codes All keyboard functions of the Model 585 PARAGON transceiver are controlled by sending codes in ASCII format to the PARAGON. These codes correspond to the values located in the Keyboard 
+Lookup Table used in the PARAGON's internal firmware program. The command codes are shown below in TABLE 1. In the program, these codes are sent using the BASIC programming line 
+
+        PRINT#1,D$.
+
+This must then be followed by     
+
+        GOSUB 2170,
+
+which calls a delay subroutine. THis delay is required to allow the transceiver enough time to complete the requested operation before sending it another code.
+
+TABLE 1. RS232 PARAGON COMMAND CODE CHART
+__________________________
+|  KEY   |CHARACTER|ASCII|
+|FUNCTION|         |CODE |
+|________|_________|_____|
+|   0    |    0    | 30  |
+|   1    |    1    | 31  |
+|   2    |    2    | 32  |
+|   3    |    3    | 33  |
+|   4    |    4    | 34  |
+|   5    |    5    | 35  |
+|   6    |    6    | 36  |
+|   7    |    7    | 37  |
+|   8    |    8    | 38  |
+|   9    |    9    | 39  |
+|RCL/GLC |    :    | 3A  |
+|MLC/SET |    ;    | 3B  |
+|STO/GL  |    <    | 3C  |
+|CLEAR   |    =    | 3D  |
+|VOICE   |    >    | 3E  |
+|SPOT    |    ?    | 3F  |
+|ENTER   |    @    | 40  |
+|MT/10HZ |    A    | 41  |
+|DISP.>  |    B    | 42  |
+|LCK     |    C    | 43  |
+|ML/MC   |    D    | 44  |
+|A=B     |    E    | 45  |
+|A/B     |    F    | 46  |
+|FAST    |    G    | 47  |
+|RX. OFF |    H    | 48  |
+|TX. OFF |    I    | 49  |
+|SPLIT   |    J    | 4A  |
+|MS/RATE |    K    | 4B  |
+|FM      |    L    | 4C  |
+|AM      |    M    | 4D  |
+|LSB     |    N    | 4E  |
+|USB     |    O    | 4F  |
+|CW      |    P    | 50  |
+|TUNE    |    Q    | 51  |
+|6.0 FILT|    R    | 52  |
+|2.4 FILT|    S    | 53  |
+|1.8 FILT|    T    | 54  |
+|.50 FILT|    U    | 55  |
+|.25 FILT|    V    | 56  |
+|.DEC.PT.|    W    | 57  |
+|SHIFT   |    X    | 58  |
+|DOWN/HBD|    Y    | 59  |
+|UP/HBU  |    Z    | 5A  |
+|TUNE UP |    [    | 5B  |
+|STATUS  |    \    | 5C  |
+|TUNE DOW|    ]    | 5D  |
+|________|_________|_____|

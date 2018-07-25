@@ -1,0 +1,356 @@
+                                                            MODEL 258-IBM
+                                                     PARAGON SERIAL CONTROL PROGRAM
+
+INTRODUCTION The Model 258-IBM is a software package which, when used with the optional Model 258 RS232 Interface, permits an IBM PC or compatible computer to remotely communicate with the Ten-Tec PARAGON 
+transceiver. The program is written in Microsoft BASIC and requres that the user have the program BASICA.COM or the quivalent installed on the IBM PC.
+
+PARTS SUPPLIED Enclosed in the Model 258-IBM package you should find the following items:
+    1 - #258-IBM program 5 1/4" disk
+    1 - #74189 Installation and Instruction manual.
+    1 - Software REgistration Card
+
+INSTALLATION INSTRUTIONS
+
+    1. MAKE A BACKUP COPY The software provided is NOT Copy Protected and man easily be duplicated or installed on your hard disk. Refer to you computer DOS and user manuals for the steps required to 
+backup disks and copy programs to your hard disk. Then place the Master disk in a safe place and only use the copy.
+    2. SYSTEM REQUIREMENTS Your IBM PC or compatible computer should have at least 256K of RAm and at least one RS232 Serial Communications Port available. You may use either a monochrome or color monitor, 
+however, at this time color is not supported in the program. The Primary requirement for using the PARAGON program is that YOU MUST HAVE BASIC. If you have an IBM PC, this will be a program called 
+BASICA.COM which came with the DOS. For IBM compatible computers this may be GWBASIC or some other form of BSIC.
+    3. WHAT'S ON YOUR DISK The enclosed software disk will contain the main program PARAGON.BAS which has been saved in standard ASCII file format. There is also a small batch file which can be used to 
+automatically load BASIC and run the PARAGON.BAS program. This file is called PARAGON.BAT. Depending on your directory structures, you may have to modify this batch file so that DOS can locate your 
+BASICA.COM file. See your computers users manual if you have questions. If you don't want to worry about directories and sub-directories, simply install the BASICA.COM and PARAGON.BAS files in your root 
+directory and type "PARAGON" to execute the batch file. A third file on your disk, called MEM1, contains a sample set of memories which can be read into the PARAGON program. There may also be a forth file 
+called README.DOC, which will have any last minute corrections on instructions.
+    4. CONNECT YOUR COMPUTER TO THE PARAGON After you have installed your Model 258 Interface and constructed the required interconnecting able you are ready to test everything. (If you have questions 
+about installing your Model 258 or making the cable, see the Instructions provided with the Model 258). Connect the DB-25 Male connector to the mating connector on the rear of the PARAGON. Next locate the 
+COM1 RS232 serial connector on your computer. This will normall be a DB-25 Male connector. (If it is not, you will have to change your connecting cable to match). Connect the free end of the 
+interconnecting cable to this COM1 connector. NOTE:You may also use COM2 if you wish, but you will have to change line 110 in the program to read
+        OPEN "COM2:1200,N,8,1,CS,DS,RS,CD" AS #1
+    5. TESTING THE PROGRAM Apply power to your Computer  and also to the PARAGON. Turn ON the POWER switch on the PARAGON. The transceiver should power up as usual and you should be able to manually 
+control all functions of the PARAGON. If you have problems, discconnect the interconnect cable and try again. If you still have problems refer to the Trouble Shooting section at the end of the 
+instructions. Run PARAGON program and you should see the screen shown below. The FREQUENCY and VFO displayed may differ from that shown but they should be what is currently displayed on the PARAGON. If you 
+get everything but the last line, the you may have a cabling problem and the computer is not receiving the status of the transceiver correctly (see Trouble Shooting section). If everything appears to be 
+working you can select some of the menu items to exercise your PARAGON. The Menu Functions are covered in more detail in the next section.
+
+_____________________________________________
+|        MAIN MENU                          |
+|    1---ENTER FREQUENCY                    |
+|    2---CHANGE MDOE                        |
+|    3---CHANGE CRYSTAL FILTER              |
+|    4---ENTER ALPHA TAG                    |
+|    5---CHANGE AUX. DISPLAY                |
+|    6---VFO FUNCTIONS                      |
+|    7---MEMORY FUNCTIONS                   |
+|    8---DISPLAY RADIO STATUS               |
+|    9---AUX. FUNCTIONS                     |
+|                                           |
+|    C---CLEAR COMMAND                      | 
+|    D---DISPLAY PARAGON MEMORY TABLE       |
+|    E---EDIT MEMORY TABLE                  |
+|    L---LOAD ALL PARAGON MEMORIES FROM DISK|
+|    S---SAVE ALL PARAGON MEMORIES TO DISK  |
+|                                           |
+|LEFT CURSOR---FREQUENCY TUNE DOWN          |
+|RIGHT CURSOR---FREQUENCY TUNE UP           |
+|                                           |
+|    SELECT DESIRED FUNCTION                |
+|VFO A FREQUENCY= 07.33500 MHZ              |
+_____________________________________________
+
+
+       MENU FUNCTIONS
+
+____________________________________________
+|        MAIN MENU                          |
+|    1---ENTER FREQUENCY                    |
+|    2---CHANGE MDOE                        |
+|    3---CHANGE CRYSTAL FILTER              |
+|    4---ENTER ALPHA TAG                    |
+|    5---CHANGE AUX. DISPLAY                |
+|    6---VFO FUNCTIONS                      |
+|    7---MEMORY FUNCTIONS                   |
+|    8---DISPLAY RADIO STATUS               |
+|    9---AUX. FUNCTIONS                     |
+|                                           |
+|    C---CLEAR COMMAND                      |
+|    D---DISPLAY PARAGON MEMORY TABLE       |
+|    E---EDIT MEMORY TABLE                  |
+|    L---LOAD ALL PARAGON MEMORIES FROM DISK|
+|    S---SAVE ALL PARAGON MEMORIES TO DISK  |
+|                                           |
+|LEFT CURSOR---FREQUENCY TUNE DOWN          |
+|RIGHT CURSOR---FREQUENCY TUNE UP           |
+|                                           |
+|    SELECT DESIRED FUNCTION                |
+|VFO A FREQUENCY= 07.33500 MHZ              |
+|___________________________________________|
+                                                                    
+The PARAGON software is all menu driven. The MAIN MENU is the one you will  see when you first run the program. It is also the one you will most often come back to. If you are in another menu, you can 
+usually getback to the MAIN MENU by pressing the "M" key. Selections form the MAIN MENU ARE described below.
+
+    1---ENTER FREQUENCY Use this menu item to key in a new operating frequency for the PARAGON. When Selected, if clears the screen and presents you with the following:
+_________________________________________        
+|        CURRENT FREQUENCY= 07.33500 MHZ|
+|                                       |
+|        ENTER FREQUENCY IN MHZ: ? |    |
+|_______________________________________|   
+The CURRENT FREUENCY will be what is displayed on the PARAGON now. To enter a new frequency, simply key it in as usual and the hit the RETURN key. (Exception: TO enter whole MHz i.e. 12.00000 MHz, you 
+must enter the decimal point, not jus the digits to the left of the decimal point {12.}) After pressing the RETURN key, the MAIN MENU will reappear.
+
+    2---CHANGE MODE This item will enable you to change the Mode setting of the PARAGON. When selected, the following change menu will be displayed:
+____________________________
+|    MODE SELECT MENU       |  
+|                           |
+|        CURRENT MODE=      |
+|                           |
+|        1---TUNE           |
+|        2---CW             |
+|        3---USB            |
+|        4---LSB            |
+|        5---AM             |
+|        6---FM             |
+|        7---RTTY           |
+|                           |
+|    M---RETURN TO MAIN MENU|
+|                           |
+|    SELECT DESIRED MODE ?  |
+|___________________________|
+Upon pressing one of the selection numbers(1 - 7) the PARAGON Mode will be changed and teh MAIN MENU will be displayed. Note: You do not have to press the RETURN key. Pressing the "M" key will return you 
+to the MAIN MENU without changin the Mode.
+
+    3---CHANGE CRYSTAL FILTER Use this item to select a crystal filter setting on the PARAGON. When selected the following menu will be displayed:
+_____________________________
+| CRYSTAL FILTER SELECT MENU|
+|                           |
+|        CURRENT FILTER=2.4 |
+|                           |
+|        1---6.0KHZ         |
+|        2---2.4KHZ         |
+|        3---1.8KHZ         |
+|        4---.50KHZ         |
+|        5---.25KHZ         |
+|                           |
+|    M---RETURN TO MAIN MENU|
+|                           |
+|    SELECT DESIRED FILTER? |
+|___________________________|   
+Press one of the numbers and the appropriate filter will be selected and you will be returned to the MAIN MENU.
+
+    4---ENTER ALPHA TAG This menu item can be used to enter or change the TAG of anny of the memories. Selecting this tiem will clear the screen and you will be presented with the following:
+   _______________________________________
+   |ENTER ALPHA TAG (UP TO 7 CHARACTERS)?|
+   |_____________________________________| 
+You should then key in any tag you want followed by the RETURN key. If the PARAGON is not in MEMORY mode (the MEM indicator is off), you will be prompted for the memory number to save the TAG in. If the 
+MEM indicator is on, the TAG will be stored in teh currently recalled memory.
+
+    5---CHANGE AUX. DISPLAY This menu item is used to scroll the Aux. Display between Time, Date,and TAG display modes. When selected the following menu will be displayed:
+_________________________________
+|    AUX. DISPLAY MENU          |
+|                               |
+|    CURRENT AUX. DISPLAY= TAG  |
+|                               |
+|        1---TIME               |
+|        2---ALPHA TAG          |
+|        3---DATE               |
+|                               |
+|   M---RETURN TO MAIN MENU     | 
+|                               |
+|   SELECT DESIRED AUX. DISPLAY |
+|_______________________________|  
+Choosing the appropriate number will cause the selecte Display mode to be shown on the PARAGON and you will then be returned to the MAIN MENU.
+
+    6---VFO FUNCTIONS Selecting this menu item will bring up the following menu, allowing you to change active VFOs, set the VFOs eual and control the split operating mode. After selecting the desired 
+menu number, you will be returned to the MAIN MENU.
+_______________________________
+|    VFO FUNCTION MENU        |
+|                             |
+|        1---CHANGE VFOS      |
+|        2---SET VFOS EQUAL   |
+|        3---CHANGE SPLIT MODE|
+|                             |
+|    M---RETURN TO MAIN MENU  |
+|                             |
+|    SELECT DESIRED FUNCTION? |
+|_____________________________|
+    7---MEMORY FUNCTIONS This menu selection gives you complete control over all memory functions in the PARAGON. When selected, the following menu will be displayed, allowing you to preform memory store, 
+memory recall, memory lock/unlock, memory clear, and memory tune functions.
+______________________________
+|    MEMORY FUNCTIONS MENU   |
+|                            |
+|        1---MEMORY STORE    |
+|        2---MEMORY RECALL   |
+|        3---MEMORY LOCKOUT  |
+|        4---MEMORY CLEAR    |
+|        5---MEMORY TUNE     |
+|                            |
+|        C---CLEAR COMMAND   |
+|    M---RETURN TO MAIN MENU |
+|                            |
+|    SELECT DESIRED FUNCTION?|
+|____________________________|
+When you select menu items 1 through 4, you will be prompted for the memory number to be used for the selected operation. When item 5 is selected, the Memory Tune mode will be set on the PARAGON, and you 
+will be presented with a new menu. This menu will display the current information for each memory, and will change as you use the left and right arrow keys to tune through  the memories. The C menu item 
+sends a clear key command to the PARAGON. This can be used to exit the Memory Tune mode if there are no memories currently programmed, otherwise you must select the Memory Tune function again to turn it 
+off.
+
+    8---DISPLAY RADIO STATUS After selection of this menu item, there will be a short delay, followed by the display of the current status of the PARAGON as shown below.
+____________________________
+|SELECTED VFO = A          |
+|FREQUENCY = 07.33500 MHZ  |
+|OFFSET IS OFF             |
+|NO MEMORY CHANNEL SELECTED|
+|ALPHA TAG =               |
+|MODE = LSB                |
+|CRYSTAL FILTER = 2.4 KHZ  |
+|TUNING STEP SIZE = 10 HZ  |
+|FAST TUNING = OFF         |
+|SPLIT = OFF               |
+|                          |
+|DATE = 7/19               |
+|TIME = 12:02:25           |
+|                          |
+|AUX. DISPLAY = TIME       |
+|                          |
+|PRESS M FOR MAIN MENU     |
+|__________________________|
+To return to the MAIN MENU, press the "M" key.
+
+    9---AUX. FUNCTIONS This menu item will allow you to access all of the remaining functions of the PARAGON. These include Receive and Transmit Offset, Fast Tuning Rate, Voice Readout, Ham Band Up/Down, 
+and Date and Time setting functions. These functions can be selected from the following menu:
+
+_______________________________
+|Aux. FUNCTIONS SELECT MENU   |
+|   1---RX OFFSET <OFF>       |
+|   2---TX OFFSET <OFF>       |
+|   3---FAST TUNING <OFF>     |
+|   4---VOICE                 |
+|   5---HAM BAND DOWN         |
+|   6---HAM BAND UP           |
+|   7---SET DATE <7/19>       |
+|   8---SET TIME <12:02>      |
+|   9---DISPLAY RADIO STATUS  |
+|                             |
+|LEFT CURSOR---100 KHZ DOWN   |
+|RIGHT CURSOR---100 KHZ UP    |
+|                             |
+|M---RETURN TO MAIN MENU      |
+|                             |
+|SELECT DESIRED FUNCTION      |
+|                             |
+|VFO A FREQUENCY= 07.33500 MHZ|
+|_____________________________|
+Menu items 1 through 3, when selected, will toggle between ON and OFF, with the current status being shown in brackets to the right of the menu item. Menu item 4(VOICE) will activate the optional Mode 257 
+Voice Readout (if installed). Menu items 5 and 6 will allow you to tune up and down to the next Ham Band location. Menu item 7 (SET DATE), when selected will prompt you to enter a new date using the format 
+"MM/DD", followed by hitting the RETURN key. The current Date is displayed in brackets to the right of the Menu Item. Selecting Menu Item 8 (SET TIME) will  similarly allow you to enter a new time setting 
+using the format "HH:MM", followed by hitting the RETURN key. The left and right cursor keys can be used to change the current frequency in steps of 100 kHz or 1 MHz, depending on the status of the FAST 
+tuning menu item. The current VFO and Frequency are displayed below the menu list. After selecting any of the menu items, the PARAGON status and menu information are updated.
+
+MAIN MENU COMMANDS (Cont.)
+
+C---CLEAR COMMAND This menu item is used to send a CLEAR command to the PARAGON. This can be used to clear any pending opersations that may have been mistakenly entered.
+
+D---DISPLAY PARAGON MEMORY TABLE When selected this menu item will permit you to either print out or display a listing of currently loaded Memory Table as shown below. When this program is initially run 
+this table will be empty. Information can be entered manually into this table using the "E" menu item, or can be recalled form previously stored disk files using the "L" menu item.
+
+_________________________________________________________________
+|                       PARAGON MEMORY TABLE                    |
+|MEMORY NO.    FREQUENCY    ALPHA TAG    MODE    CRYSTAL FILTER |
+|0                                                              |
+|1                                                              |
+|2                                                              |
+|3             00.93000     WSEV AM      AM      6.0            |
+|4             07.04000     CW NET       CW      .50            |
+|5             15.00000     WWV CHU      USB     2.4            |
+|6                                                              |
+|7                                                              |
+|8                                                              |
+|9                                                              |
+|10                                                             |
+|11                                                             |
+|12                                                             |
+|13                                                             |
+|14                                                             |
+|15                                                             |
+|16                                                             |
+|17                                                             |
+|18                                                             |
+|19                                                             |
+|20                                                             |
+|                           PRESS RETURN FOR NEXT PAGE          |
+|_______________________________________________________________|
+
+
+E---EDIT MEMORY TABLE This menu item will allow the enter or modify information in the current Memory Table. After selecting this item, you will be prompter to enter the Memory Number you wish to edit. 
+Upon entering the memory number followed  by a RETURN, the following menu will be displayed:
+
+_________________________________________________________________
+|                        CURRENT VALUES ARE:                    |
+|MEMORY NO.    FREQUENCY    ALPHA TAG    MODE    CRYSTAL FILTER |
+|4             07.04000     CW NET       CW      .50            | 
+|                                                               |
+|                        MEMORY EDIT MENU                       |
+|                                                               |
+|                          1---FREQUENCY                        |
+|                          2---ALPHA TAG                        |
+|                          3---MODE                             |
+|                          4---CRYSTAL FILTER                   |
+|                                                               |
+|                          M---RETURN TO MAIN MENU              |
+|                          N---NEXT MEMORY TO EDIT              |  
+|                          P---GO TO MEMORY LOAD/SAVE MENU      |
+|                                                               |
+|                        SELECT ITEM TO EDIT                    |
+|_______________________________________________________________|                                         
+
+The current values for the selected memory number are displayed along  with a menu for editing each value in the memory. Selecting menu number 1 through 4 will bring up a corresponding menu dialog which 
+will allow you to enter or change any of the values  in the  current memory. If you wish to edit another memory just press the "N" key and you will be prompted  to enter a new memory number.  If you wish 
+to return to the MAIN MENU, enter "M". If you would like to save the memories  to disk, load a new Memory Table, send the current Memory Table to the PARAGON or laod the Memory Table from the PARAGON then 
+press "P" and you will be presented with a new menu.
+
+L---LOAD ALL PARAGON MEMORIES FROM DISK When selected, this item will give you access to the Memory Load/Save Menu shown below.
+
+_______________________________
+|MEMORY LOAD/SAVE MENU        |
+|                             |
+|1---DISPLAY MEMORY TABLE     |
+|2---EDIT MEMORY TABLE        |
+|3---LOAD PARAGON MEMORIES    |
+|4---GET NEW DISK FILE        |
+|5---SAVE MEMORY TABLE TO DISK|
+|                             |
+|M---RETURN TO MAIN MENU      |
+|                             |
+|SELECT DESIRED FUNCTION?     |
+|_____________________________|
+
+Menu items 1 and 2 perform as described before, and allow you to display and edit the current Memory Table that is in the computer's RAM. Menu item 3 will send the current Memory Table to the PARAGON while 
+displaying the following message:
+_____________________________________
+|NOW LOADING PARAGON MEMORY CHANNEL 3|
+|____________________________________|
+
+Menu item 4 will allow you to read in a Memory Table data file that has been previously saved to disk. You will be prompted for the DISK DRIVE adn FILENAME to be loaded, and after hitting the RETURN key 
+you should see the following status line:
+__________________________
+|READING MEMORY CHANNEL 6|
+|________________________|
+
+Menu item 5 is used to save the current Memory Table to disk. You will be prompted for the DISK DRIVE and a FILENAME. After hitting the RETURN key you will see a status line like the one below:
+___________________________
+|WRITING MEMORY CHANNEL 21|
+|_________________________|
+
+S---SAVE ALL PARAGON MEMORIES TO DISK When selected, this item will cause all of the memories in the PARAGON to be loaded into the Memory Table. This procedure may take several minutes, and you be 
+presented with the following dialog:
+_____________________________________
+|RECALLING ALL MEMORIES FROM PARAGON|
+|*************PLEASE WAIT***********|
+|                                   |
+|     RECALLING MEMORY NUMBER 7     |
+|___________________________________|
+
+When finished with the loading process, you will be presented with the Memory Load/Save Menu show before. At this point you can display, edit or save the memories just loaded from the PARAGON. To save the 
+Memory Table select menu item 5. You will be prompted for the DISK DRIVE and a FILENME. After hitting the RETURN key you should see a status line liek the one below:
+_________________________
+|WRITING MEMORY CHANNEL 21|
+|_________________________|
