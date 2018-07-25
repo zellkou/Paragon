@@ -1,8 +1,10 @@
 ma#Menu Class
 
+
 class Menu:
     maMe = "M -- Return To Main Menu"
     seDe = "Select Desired Function"
+
 
     def Main():
         print('Main Menu')

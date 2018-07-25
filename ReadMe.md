@@ -1,15 +1,21 @@
 # Paragon
-Paragon Control Software
-this is an attempt to port the control software for the Ten-Tec Paragon written in MS Basic for the IBM PC to well it started out C but now is Python.
+Paragon Control Software:
+this is an attempt to port the control software for the Ten-Tec Paragon written in MS Basic for the IBM 
+PC to Python.
 
 It uses a 1200 8N1 serial connection without hardware handshaking. 
 
 It uses software timing loops for a 4.77Mhz processor in lines 2190 and 3150.
 
-All keyboard functions of the Model 585 Paragon transceiver are controlled by sending codes in ASCII format
-to the Paragon. These codes correspond to the values located in the table. In the BASIC programming line:
-PRINT#1,D$. This must then be followed by GOSUB 2170, which calls a delay subroutine. This delay is required
-to allow the transceiver enough time to complete the requested operation before sending it another code.
+All keyboard functions of the Model 585 Paragon transceiver are controlled by sending codes in ASCII 
+format to the Paragon. These codes correspond to the values located in the table. 
+
+In the BASIC programming line:PRINT#1,D$. This must then be followed by GOSUB 2170, which calls a delay 
+subroutine. This delay is required to allow the transceiver enough time to complete the requested 
+operation before sending it another code. The delay routine is:FOR T = 1 TO 200; NEXT T: RETURN. This is
+for a 4.77Mhz processor. For an IBM AT is reccomends increasing this loop to 500 or so.
+
+
 
 
 
