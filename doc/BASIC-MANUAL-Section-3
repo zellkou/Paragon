@@ -1,0 +1,107 @@
+# Note most typos are left in from the original documentation.
+
+3. Paragon Status Information You will note that in Table 1, the "\" character(ASCII code 5C) is assigned to the status function . THis command is used to retrieve thirty bytes of the current operating 
+status information from the PARAGON. Immediately after recieving the "\" character the PARAGON send a continuous string of thirty (30) bytes back to the computer. The function of these thirty bytes of 
+information is fully described below.
+
+    To better illustrate what this data string consistes of and hwo it can be used, we will assume that the PARAGON is set up as follows:
+        VFO - A
+        FREQUENCY - 7.33500 MHz
+        TUNING STEP SIZE - 10 Hz
+        MODE - LSB
+        FILTER - 2.4 kHz
+        OFFSET - NONE
+        MEMORY - NONE
+        FAST - OFF
+        LOCK - OFF
+        AUX. DISPLAY - TIME
+        DATE - JULY 22
+        TIME - 12:05:35
+
+    THe first seven (7) bytes of information contain the currently displayed frequency read out to 10 Hz resolution. The most significant digit is sent first and there are no decimal points in this string. 
+This information is read in and stored using program lines 1570-1610. The frequency information is further broken down in lines 2440-2460. For the above example settings these seven (7) bytes will be: 00 
+07 03 03 05 00 00. These values are shown in Hex format.
+    The next four (4) bytes contain information pertaining to the status of the PARAGON's 32 bit driver IC, which is used to activate the Mode, FIlter, LED, and relay control lines. These four (4) bytes 
+are decoded as shown below (most significant bit first). For all these control bits, a "1" denotes a line that is active or turned on. The information in these four bytes is read in and stored using 
+program lines 1620-1650.
+
+Byte #1:
+    Bit 7 - FAST LED
+    Bit 6 - RTTY OUTOUT LINE
+    Bit 5 - FM OUTPUT LINE
+    Bit 4 - AM OUTPUT LINE
+    Bit 3 - LSB OUTPUT LINE
+    Bit 2 - USB OUTPUT LINE
+    Bit 1 - CW OUTPUT LINE
+    Bit 0 - TUNE OUTPUT LINE
+The information contained in this buy is extracted in program lines 2590-2730. For the example this byte would have a value of 08.
+
+Byte #2:
+    Bit 7 - 6.0 kHz FILTER OUTPUT
+    Bit 6 - 2.4 kHz FILTER OUTPUT
+    Bit 5 - 1.8 kHz FILTER OUTPUT
+    Bit 4 - .50 kHz FILTER OUTPUT
+    Bit 3 - .25 kHz FILTER OUTPUT
+    Bit 2 - RX OFFSET LED OUTPUT
+    Bit 1 - TX OFFSET LED OUTPUT
+    Bit 0 - LOCK LED OUTPUT
+The information in this datat byte is extracted in the program lines 2750-2890. For the example, this byte would have a value of 40.
+
+Byte #3:
+    Bit 7 - DATE LED OUTPUT
+    Bit 6 - TIME LED OUTPUT
+    Bit 5 - OFFSET LED OUTPUT
+    Bit 4 - MEMORY LED OUTPUT
+    Bit 3 - VFO A LED OUTPUT
+    Bit 2 - VFO B LED OUTPUT
+    Bit 1 - SPLIT LED OUTPUT
+    Bit 0 - TAG LED OUTPUT
+The information in this data byte is extracted in program lines 2250-2420. For the example, this byte would have a value of 48.
+
+Byte #4:
+    Bit 7 - BAND RELAY #8 (22-30 MHz)
+    Bit 6 - BAND RELAY #7 (15-22 MHz)
+    Bit 5 - BAND RELAY #6 (10.5-15 MHz)
+    Bit 4 - BAND RELAY #5 (6.5-10.5 MHz)
+    Bit 3 - BAND RELAY #4 (4-6.5 MHz)
+    Bit 2 - BAND RELAY #3 (2.5-4 MHz)
+    Bit 1 - BAND RELAY #2 (1.7-2.5 MHz)
+    Bit 0 - BAND RELAY #1 (0.1-1.7 MHz)
+The information in this data byte is not used by the program. FOr the example, this byte would have a value of 10.
+# It may be possible to add control for the Hercules II amplifer with this byte
+
+    The next byte contains the current memory channel number. If the PARAGON is not in MEMory mode and no memory channel is shown, this value is set to 63. If all memories are full this values is et to FE. 
+This byte  is read in and stored using program lines 1660-1670. The value is extracted in program line 2540. For the example, this byte would have a value for 63.
+
+    Byte number thirteen contains the tuning step size that is currently in use. The relationship between this data byte and a given step size is show below:
+        Step Size - Byte Value
+        10 Hz       00
+        20 Hz       01
+        50 Hz       02
+        100 Hz      03
+        500 Hz      04
+   This byte is read in and stored using program lines 1680-1690. The information is extracted in lines 2920-2980. FOr the given example, this byte would have a value of 00.
+   
+   The next five (5) bytes contain the offset information. THe first byte in this group tells whether the offset is positive or negative. If this byte has a value >1, then the offset is negative, otherwise 
+it is positive. Byte number two is the tens of kilohertz digit. Byte number three is the kilohertz digit. Bytes four and five are the 100 hertz and 10 hertz digits respectively. For example, if the 
+offset were +45.32 kHz, then the data bytes would be 00 04 05 03 02. These five bytes are read in and stored  using program lines 1700-1740. The information they contain is extracted in lines 2480-2510. For 
+the original example, these data bytes would be 00 00 00 00 00.
+       
+    The next seven (7) bytes contain the alphanumeric tag information that is currently being displayed. These data bytes are in standard ASCCII Hex format. For example, if the tag was PARAGON, the the 
+data bytes woul be (most significant character first) 50 41 52 41 47 4F 4E. These seven bytes are read in and stroed using program lines 1750-1770. The tag information is extracted in lines 2560-2570. 
+For the orginal example, these data bytes would be 20 20 20 20 20 20 20.
+
+    The next byte (number 26) contains the month information. This byte will be in the range of 01 to 12, 01 being January and 12 being December. This byte is read in and stored in program lines 1780-1790. 
+The information is extracted in line 3010. FOr the given example, this byte would be 07.
+
+    The next byte contains the day of the month  information. This will be in the range of 01 to 31. This byte is read in and stored in program lines 1800-1810. The information is extracted in lines 
+3020-3040. For the example, this byte would have a value of 22.
+
+    Byte number 28 contains the hours information for the current time. This will range between 00 and 23. This byte is read in and stored in lines 1820-1830. The information is extracted in line 3070. For 
+the example, it would have the value of 12.
+
+    The next byte contains the minutes information. This will be in the range of 00 to 59. This byte is read in and stored in lines 1840-1850. The information is extracted in program lines 3080-3100. For 
+the given example, this byte would be 05.
+
+    The last byte contains the seconds information. This will be in the range of 00 to 59. This byte is read in and stored using lines 1860-1870. The information is extracted in program lines 3110-3130. 
+For the give example, this byte would be 35.
