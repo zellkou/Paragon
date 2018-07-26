@@ -12,7 +12,9 @@ import mainMenu
 import routines
 
 #list serial ports
-os.system('ls /dev/tty*S*')
+#os.system('ls /dev/tty*S*') #remove this line if the next line works
+serial.tools.list_ports() # if this works it will make it system agnostic
+
 
 print('Choose Serial Port')
 
@@ -35,9 +37,10 @@ ser = serial.Serial(
 )
 
 while True:
-    data = ser.read(9999)
-    if len(data) > 0:
-        print('Paragon active', data)
+    data0 = ser.read(30)
+    if len(data0) = 30:
+        data1 =  bytes.fromhex(data0).decode('utf-8')
+        print('Paragon active', data1)
     sleep(1)
     print('Ready')
     else:

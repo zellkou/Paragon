@@ -4,8 +4,8 @@ class freq:
         ser.write('[')
     def tunDowRou():
         ser.write(']')
-    def entfreRou():
-        print('Enter Frequency')
+    def entFreRou():
+        print('Enter Frequency Including The Decimal')
         userInput = 0
         while True:
             try:

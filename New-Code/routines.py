@@ -12,11 +12,11 @@ class menRou:
         Main()
         maMeVar = input()
         if maMeVar = '1':
-            #goto freq routine #menu still needed for this
+            entFreRou() #goto enter freg routine
         elif maMeVar = '2':
-            modRou()
+            modRou() #goto mode routine
         elif maMeVar = '3':
-            ilRou()
+            filRou() #goto filter routine
         elif maMeVar = '4':
             #goto alpha tag rount #menu still needed
         elif maMeVar = '5':
