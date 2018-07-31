@@ -1,20 +1,15 @@
 # Paragon Control Software
 
-#Imports
-
-#import serial
-import serial
-
 #import
-from time import sleep
 import os
+from time import sleep
+import serial
 import mainMenu
 import routines
+import tuneRoutine
 
 #list serial ports
-#os.system('ls /dev/tty*S*') #remove this line if the next line works
-serial.tools.list_ports() # if this works it will make it system agnostic
-
+os.system('ls /dev/tty*S*')
 
 print('Choose Serial Port')
 
@@ -38,11 +33,12 @@ ser = serial.Serial(
 
 while True:
     data0 = ser.read(30)
-    if len(data0) = 30:
-        data1 =  bytes.fromhex(data0).decode('utf-8')
+    if len(data0) == 30:
+        # WTF
+        str = str.fromhex(str).decode('utf-8')
         print('Paragon active', data1)
-    sleep(1)
-    print('Ready')
+        sleep(1)
+        print('Ready')
     else:
         print('No connection, check cable. Exiting')
         raise SystemExit

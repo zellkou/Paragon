@@ -1,286 +1,321 @@
-import mainMenu
 import os
-import time
+from time import sleep
+import mainMenu
 
-class rePeat:
-    def inNoRE():
-        print('Input Not Recognized, Try Again')
+def input_not_recognized():
+    print('Input Not Recognized, Try Again')
 
-class menRou:
+
+class MenuRoutines:
+
+
 ###########Main Menu Routine
-    def maiRou():
-        Main()
-        maMeVar = input()
-        if maMeVar = '1':
-            entFreRou() #goto enter freg routine
-        elif maMeVar = '2':
-            modRou() #goto mode routine
-        elif maMeVar = '3':
-            filRou() #goto filter routine
-        elif maMeVar = '4':
+    def main_menu_routine():
+        main_menu()
+        main_menu_variable = input()
+        if main_menu_variable == '1':
+            enter_frequency_routine() #goto enter freg routine
+        elif main_menu_variable == '2':
+            mode_routine() #goto mode routine
+        elif main_menu_variable == '3':
+            filter_routine() #goto filter routine
+        elif main_menu_variable == '4':
+            print('test passed')
             #goto alpha tag rount #menu still needed
-        elif maMeVar = '5':
-            auxDisRou() #goto auxdis routine
-        elif maMeVar = '6':
-            vfoRou() #goto vfo routine
-        elif maMeVar = '7':
-            memRou() # goto memory routine
-        elif maMeVar = '8':
+        elif main_menu_variable == '5':
+            aux_display_routine() #goto auxdis routine
+        elif main_menu_variable == '6':
+            vfo_routine() #goto vfo routine
+        elif main_menu_variable == '7':
+            memory_routine() # goto memory routine
+        elif main_menu_variable == '8':
+            print('test passed')
             #goto display radio status #menu still needed
-        elif maMeVar = '9':
-           auxFunRou() #goto auxfun routine
-        elif maMeVar = 'C' or 'c':
-            del maMeVar
+        elif main_menu_variable == '9':
+            aux_function_routine() #goto auxfun routine
+        elif main_menu_variable == 'C' or 'c':
+            del main_menu_variable
             os.system('clear')
-            maiRou()
-        elif maMeVar = 'D':
+            main_menu_routine()
+        elif main_menu_variable == 'D':
+            print('test passed')
             #goto mem table display routine #menu still needed
-        elif maMeVar = 'E' or 'e':
-            memEdiRou()
-        elif maMeVar =  'L' or 'l' or 'S' or 's':
-            memLoaRou()
-        elif meMeVar = 'X' or 'x':
-           raise SystemExit
-        elif meMeVar = '\x1b[D': #left arrow - down
-            tunDowRou()
-        elif meMeVar = '\x1b[C': #right arrow - up
-            tunUpRou()
+        elif main_menu_variable == 'E' or 'e':
+            memory_edit_routine()
+        elif main_menu_variable == 'L' or 'l' or 'S' or 's':
+            memory_load_routine()
+        elif main_menu_variable == 'X' or 'x':
+            raise SystemExit
+        elif main_menu_variable == '\x1b[D': #left arrow - down
+            tune_freq_down_routine()
+        elif main_menu_variable == '\x1b[C': #right arrow - up
+            tune_freq_up_routine()
         else:
-            del meMeVar
-            inNoRe()
+            del main_menu_variable
+            input_not_recognized()
             sleep(5)
-            maiRou()
+            main_menu_routine()
 ###########Mode routine
-    def modRou():
-        Mode()
-        modVar = input()
-        if modVar = '1':
-            tun()
-        elif modVar = '2'
-            cw()
-        elif modVar = '3':
-            usb()
-        elif modVar = '4':
-            lsb()
-        elif modVar = '5':
-            am()
-        elif modVar = '6':
-            fm()
-        elif modVar = 'M' or 'm':
-            del modVar
-            maiRou()
+    def mode_routine():
+        mode_menu()
+        mode_menu_variable = input()
+        if mode_menu_variable == '1':
+            tune_routine()
+        elif mode_menu_variable == '2':
+            cw_routine()
+        elif mode_menu_variable == '3':
+            usb_routine()
+        elif mode_menu_variable == '4':
+            lsb_routine()
+        elif mode_menu_variable == '5':
+            am_routine()
+        elif mode_menu_variable == '6':
+            fm_routine()
+        elif mode_menu_variable == 'M' or 'm':
+            del mode_menu_variable
+            main_menu_routine()
         else:
-            del modVar
-            inNoRe()
+            del mode_menu_variable
+            input_not_recognized()
             sleep(5)
-            modRou()
+            mode_routine()
 ###########filter routine
-    def filRou():
-        Filter()
-        filVar = input()
-        if filVar = '1':
-            60fil()
-        elif filVar = '2':
-            24fil()
-        elif filVar = '3':
-            18fil()
-        elif filVar = '4':
-            50fil()
-        elif filVar = '5':
-            25fil()
-        elif filVar = 'M' or 'm':
-            del filVar
-            maiRou()
+    def filter_routine():
+        filter_menu()
+        filter_menu_variable = input()
+        if filter_menu_variable == '1':
+            filter_6khz()
+        elif filter_menu_variable == '2':
+            filter_24khz
+        elif filter_menu_variable == '3':
+            filter_18khz()
+        elif filter_menu_variable == '4':
+            filter_50khz()
+        elif filter_menu_variable == '5':
+            filter_25khz()
+        elif filter_menu_variable == 'M' or 'm':
+            del filter_menu_variable
+            main_menu_routine()
         else:
-            del filVar
-            inNoRE()
+            del filter_menu_variable
+            input_not_recognized()
             sleep(5)
-            filRou()
+            filter_routine()
 ###########aux display menu routine
-    def auxDisRou():
-        AuxDis()
-        auxDisVar = input()
-        if auxDisVar = '1':
+    def aux_display_routine():
+        aux_display_menu()
+        aux_display_menu_variable = input()
+        if aux_display_menu_variable == '1':
+            print('test passed')
             #aux dis time routine
-        elif auxDisVar = '2':
+        elif aux_display_menu_variable == '2':
+            print('test passed')
             #aux dis alpha tag routine
-        elif auxDisVar = '3':
+        elif aux_display_menu_variable == '3':
+            print('test passed')
             #aux dis date routine
-        elif auxDisVar = 'M' or 'm'
-            del auxDisVar
-            maiRou()
+        elif aux_display_menu_variable == 'M' or 'm':
+            del aux_display_menu_variable
+            main_menu_routine()
         else:
-            del auxDisVar
-            inNoRe()
+            del aux_display_menu_variable
+            input_not_recognized()
             sleep(5)
-            auxDisRou()
+            aux_display_routine()
 ##########VFO menu routine
-    def VfoRou():
-        VFO()
-        vfoVar = input()
-        if vfoVar = '1':
+    def vfo_routine():
+        vfo_menu()
+        vfo_menu_variable = input()
+        if vfo_menu_variable == '1':
+            print('test passed')
             #change vfo A or B routine
-        elif vfoVar = '2':
+        elif vfo_menu_variable == '2':
+            print('test passed')
             #set vfos equal a=b routine
-        elif vfoVar = '3':
+        elif vfo_menu_variable == '3':
+            print('test passed')
             #change split mode a/=b routine
-        elif vfoVar = 'M' or 'm':
-            del vfoVar
-            maiRou()
+        elif vfo_menu_variable == 'M' or 'm':
+            del vfo_menu_variable
+            main_menu_routine()
         else:
-            del vfoVar
-            inNoRe()
+            del vfo_menu_variable
+            input_not_recognized()
             sleep(5)
-            VfoRou()
+            vfo_routine()
 ##########Memory menu routine
-    def MemRou():
-        Memory()
-        memVar = input()
-        if memVar = '1':
+    def memory_routine():
+        memory_menu()
+        memory_menu_varible = input()
+        if memory_menu_varible == '1':
+            print('test passed')
             #mem store routine
-        elif memVar = '2':
+        elif memory_menu_varible == '2':
+            print('test passed')
             #mem recall routine
-        elif memVar = '3':
-            memLocRou()
-        elif memVar = '4':
+        elif memory_menu_varible == '3':
+            memory_lock_routine()
+        elif memory_menu_varible == '4':
+            print('test passed')
             #mem clear routine
-        elif memVar = '5':
+        elif memory_menu_varible == '5':
+            print('test passed')
             #mem tune routine
-        elif memVar = 'M' or 'm':
-            del memVar
-            maiRou()
+        elif memory_menu_varible == 'M' or 'm':
+            del memory_menu_varible
+            main_menu_routine()
         else:
-            del memVar
-            inNoRe()
+            del memory_menu_varible
+            input_not_recognized()
             sleep(5)
-            MemRou()
+            memory_routine()
 #########memory lockout routine
-    def memLocRou():
-        MemLoc()
-        memLocVar = input()
-        if memLocVar = '1':
+    def memory_lock_routine():
+        memory_lock_menu()
+        memory_lock_menu_variable = input()
+        if memory_lock_menu_variable == '1':
+            print('test passed')
             #lock out selected memory channel routine
-        elif memLocVar = '2':
+        elif memory_lock_menu_variable == '2':
+            print('test passed')
             #unlock selected memory channel routine
-        elif memLocVar = '3':
+        elif memory_lock_menu_variable == '3':
+            print('test passed')
             #lock out all memory channels
-        elif memLocVar = '4':
+        elif memory_lock_menu_variable == '4':
+            print('test passed')
             #unlock all memory channels
-        elif memLocVar = 'M' or 'm':
-            maiRou()
+        elif memory_lock_menu_variable == 'M' or 'm':
+            main_menu_routine()
         else:
-            del memLocVar
-            inNoRe()
+            del memory_lock_menu_variable
+            input_not_recognized()
             sleep(5)
-            memLocRou()
+            memory_lock_routine()
 #########memoyr tune routine
-    def memTunRou():
-        MemTun()
-        memTunVar = input()
-        if memTunVar = '\x1b[D': #left arrow - down
+    def memory_tune_routine():
+        memory_tune_menu()()
+        memory_tune_menu_variable = input()
+        if memory_tune_menu_variable == '\x1b[D': #left arrow - down
+            print('test passed')
             #mem tune down routine
-        elif memtunVar = '\x1b[C': #right arrow - up
+        elif memory_tune_menu_variable == '\x1b[C': #right arrow - up
+            print('test passed')
             #mem tune up routine
-        elif memtunVar = 'M' or 'm':
-            del memtunVar
-            maiRou()
+        elif memory_tune_menu_variable == 'M' or 'm':
+            del memory_tune_menu_variable
+            main_menu_routine()
         else:
-            del memTunVar
-            inNoRe()
+            del memory_tune_menu_variable
+            input_not_recognized()
             sleep(5)
-            memTunRou()
+            memory_tune_routine()
 #######aux function routine
-    def auxFunRou():
-        AuxFun()
-        auxFunVar = input()
-        #curRxoffVar = ?
-        #curTxoffVar = ?
-        #curFastunVar = ? #should be 0/1
-        if auxFunVar = '1':
-            print(curRxoffVar) #need to get this var
-            del curRxoffVar
+    def aux_function_routine():
+        aux_function_menu()
+        aux_function_menu_variable = input()
+        #current_rx_offset_variable = ?
+        #current_tx_offset_variable = ?
+        #current_fast_tune_variable = ? #should be 0/1
+        if aux_function_menu_variable == '1':
+            print(current_rx_offset_variable) #need to get this var
+            del current_rx_offset_variable
             #need routine for setting this var
-        elif auxFunVar = '2':
-            print(curTxoffVarr) #need to get this var
-            del curTxoffVar
+        elif aux_function_menu_variable == '2':
+            print(current_tx_offset_variabler) #need to get this var
+            del current_tx_offset_variable
             #need routine for setting this var
-        elif auxFunVar = '3':
-            print(CurFastunVar)
-            del CurFastunVar
+        elif aux_function_menu_variable == '3':
+            print(current_fast_tune_variable)
+            del current_fast_tune_variable
             #need routine for setting this var
-        elif auxFunVar = '4':
+        elif aux_function_menu_variable == '4':
+            print('test passed')
             #unsure what this is for the menu says 'voice'
-        elif auxFunVar = '5':
-            banDowRou()
-        elif auxFunVar = '6':
-            banUpRou()
-        elif auxFunVar = '7':
+        elif aux_function_menu_variable == '5':
+            band_down_routine()
+        elif aux_function_menu_variable == '6':
+            band_up_routine()
+        elif aux_function_menu_variable == '7':
+            print('test passed')
             #set date need routine
-        elif auxFunVar = '8':
+        elif aux_function_menu_variable == '8':
+            print('test passed')
             #set time need routine
-        elif auxFunVar = '\x1b[D':
+        elif aux_function_menu_variable == '\x1b[D':
+            print('test passed')
             #unkVar0 down # not real sure whats going on here
-        elif auxFunVar = '\x1b[C':
+        elif aux_function_menu_variable == '\x1b[C':
+            print('test passed')
             #unkVar0 up # ditto
-        elif auxFunVar = 'M' or 'm':
-            del auxFunVar
-            maiRou()
+        elif aux_function_menu_variable == 'M' or 'm':
+            del aux_function_menu_variable
+            main_menu_routine()
         else:
-            del auxFunVar
-            inNoRe()
+            del aux_function_menu_variable
+            input_not_recognized()
             sleep(5)
-            auxFunRou()
+            aux_function_routine()
 #########Mem load/save
-    def memLoaRou():
-        MemLoa()
-        memLoaVar = input()
-        if memLoaVar = '1':
+    def memory_load_routine():
+        memory_load_menu()
+        memory_load_menu_variable = input()
+        if memory_load_menu_variable == '1':
+            # this is going to need a lot of clean up
             file = (foo.bar, r)
-            print file.read()
-        elif memLoaVar = '2':
+            print(file.read())
+        elif memory_load_menu_variable == '2':
+            print('test passed')
             #edit mem table routine
-        elif memLoaVar = '3':
-            file = open(memFilVar, r+) # need way of choosing file and not 100% on opening it this way
-            print file.read()
+        elif memory_load_menu_variable == '3':
+            file = open(memory_file_load_variable, r+w)
+            # need way of choosing file and not 100% on opening it this way
+            print(file.read())
             #need way to push this to the radioo
-        elif memLoaVar = '4':
+        elif memory_load_menu_variable == '4':
             print('Choose Memory File')
             os.system('ls ~/Documents/Paragon/')
-            memFilVar = '~/Documents/Paragon/' + input() # unsure about this
-            file = open(memFilVar, r+)
-            print file.read()
-        elif memLoaVar = '5':
+            memory_file_load_variable = '~/Documents/Paragon/' + input()
+            # unsure about this
+            file = open(memory_file_load_variable, r+w)
+            print(file.read())
+        elif memory_load_menu_variable == '5':
             file.close()
-        elif memLoaVar = 'M' or 'm':
-            del memLoaVar
-            maiRou()
+        elif memory_load_menu_variable == 'M' or 'm':
+            del memory_load_menu_variable
+            main_menu_routine()
         else:
-            del memLoaVar
-            inNoRe()
+            del memory_load_menu_variable
+            input_not_recognized()
             sleep(5)
-            memLoaRou()
+            memory_load_routine()
 ##########mem edit routine
-    def memEdiRou():
-        MemEdi()
-        memEdiVar = input()
-        if memEdiVar = '1':
+    def memory_edit_routine():
+        memory_edit_menu()
+        memory_edit_menu_variable = input()
+        if memory_edit_menu_variable == '1':
+            print('test passed')
             #edit mem freq routine
-        elif memEdiVar = '2':
+        elif memory_edit_menu_variable == '2':
+            print('test passed')
             #edit alpha tag routine
-        elif memEdiVar = '3':
+        elif memory_edit_menu_variable == '3':
+            print('test passed')
             #edit mode routine
-        elif memEdiVar = '4':
+        elif memory_edit_menu_variable == '4':
+            print('test passed')
             #edit filter routine
-        elif memEdiVar = 'N' or 'n':
+        elif memory_edit_menu_variable == 'N' or 'n':
+            print('test passed')
             #next memory routine
-        elif memEdiVar = 'P' or 'p':
-            del memEdiVar
-            memLoaRou()
-        elif memEdiVar = 'M' or 'm':
-            del memEdiVar
-            maiRou()
+        elif memory_edit_menu_variable == 'P' or 'p':
+            del memory_edit_menu_variable
+            memory_load_routine()
+        elif memory_edit_menu_variable == 'M' or 'm':
+            del memory_edit_menu_variable
+            main_menu_routine()
         else:
-            del memEdiVar
-            inNoRe()
+            del memory_edit_menu_variable
+            input_not_recognized()
             sleep(5)
-            memEdiRou()
+            memory_edit_routine()

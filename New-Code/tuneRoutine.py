@@ -10,13 +10,12 @@ class freq:
         while True:
             try:
                 userInput = int(input("Enter Frequency: "))
-        except ValueError:
-            print('Numbers Only')
+            except ValueError:
+                print('Numbers Only')
             continue
         else:
             print('Sending To Radio')
             ser.write(userInput)
-            break
 ###### band selection routines
 class band:
     def banUpRou():
@@ -43,14 +42,14 @@ class transMode:
         ser.write('Q')
 ###### filter selection  routines
 class filters:
-    def 60fil():
+    def fil60():
         ser.write('R')
-    def 24fil():
+    def fil24():
         ser.write('S')
-    def 18fil():
+    def fil18():
         ser.write('T')
-    def 50fil():
+    def fil50():
         ser.write('U')
-    def 25fil():
+    def fil25():
         ser.write('V')
 

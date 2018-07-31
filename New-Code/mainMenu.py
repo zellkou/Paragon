@@ -1,12 +1,14 @@
-ma#Menu Class
+#Menu Class
+
+
+maMe = "M -- Return To Main Menu"
+seDe = "Select Desired Function"
 
 
 class Menu:
-    maMe = "M -- Return To Main Menu"
-    seDe = "Select Desired Function"
 
 
-    def Main():
+    def main_menu():
         print('Main Menu')
         print('1 -- Enter Frequency')
         print('2 -- Change Mode')
@@ -26,7 +28,7 @@ class Menu:
         print('Left Cursor -- Frequency Tune Down')
         print('Right Cursor -- Frequency Tune Up')
         print(SeDe)
-    def Mode():  #Main Menu 2
+    def mode_menu():  #Main Menu 2
         print('Mode Select Menu')
         print('Current Mode = curModvar') #need variable here
         print('1 -- Tune')
@@ -38,7 +40,7 @@ class Menu:
         print('7 -- RTTY')
         print(M)
         print('Select Desired Mode')
-    def Filter():  #Main Menu 3
+    def filter_menu():  #Main Menu 3
         print('Crystal Filter Select Menu')
         print('Current Filter = curFilvar') #need variable here
         print('1 -- 6.0 Khz')
@@ -48,7 +50,7 @@ class Menu:
         print('5 -- 0.25 Khz')
         print(M)
         print('Select Desired Filter')
-    def AuxDis():  #Main Menu 5
+    def aux_display_menu():  #Main Menu 5
         print('Aux. Display Menu')
         print('Current Aux. Display = curAuxdisVar') #need Variable here
         print('1 -- Time')
@@ -56,14 +58,14 @@ class Menu:
         print('3 -- Date')
         print(M)
         print('Select Desired Aux. Display')
-    def VF0(): #Main Menu 6
+    def vfo_menu(): #Main Menu 6
         print('VFO Control Functions')
         print('1 -- Change VFOs')
         print('2 -- Set VFOs Equal')
         print('3 -- Change Split Mode')
         print(M)
         print(SeDe)
-    def Memory(): #Main Menu 7
+    def memory_menu(): #Main Menu 7
         print('Memory Functions Menu')
         print('1 -- Memory Store')
         print('2 -- Memory Recall')
@@ -72,7 +74,7 @@ class Menu:
         print('5 -- Memory Tune')
         print(M)
         print(SeDe)
-    def MemLoc(): #Main Menu 7 #Memory Menu  3
+    def memory_lock_menu(): #Main Menu 7 #Memory Menu  3
         print('Memory Lock/Unlock Menu')
         print('1 -- Lock Out Selected Memory Channel')
         print('2 -- Unlock Selected Memory Channel')
@@ -80,13 +82,13 @@ class Menu:
         print('4 -- Unlock All Memory Channels')
         print(M)
         print(SeDe)
-    def MemTun(): # Main Menu 7 #Memory Menu 5
+    def memory_tune_menu(): # Main Menu 7 #Memory Menu 5
         print('Memory Tune Menu')
         print('Left Cursor -- Memory Tune Down')
         print('Right Cursor -- Memory Tune Up')
         print(M)
         print(SeDe)
-    def AuxFun(): # Main Menu 9
+    def aux_function_menu(): # Main Menu 9
         print('Aux. Functions Select Menu')
         print('1 -- RX Offset curRxoffVar') #need variable here
         print('2 -- TX Offset curTxoffVar') #need variable here
@@ -101,7 +103,7 @@ class Menu:
         print('Right Cursor -- unkVar0 Up') #ditto
         print(M)
         print(SeDe)
-    def MemLoa(): # Main Menu L/S
+    def memory_load_menu(): # Main Menu L/S
         print('Memory Load/Save Menu')
         print('1 -- Display Memory Table')
         print('2 -- Edit Memory Table')
@@ -110,7 +112,7 @@ class Menu:
         print('5 -- Save Memory Table To Disk')
         print(M)
         print(SeDe)
-    def MemEdi(): #Main Menu E  #MemLoa 2 
+    def memory_edit_menu(): #Main Menu E  #MemLoa 2
         print('Memory Edit Menu')
         print('1 -- Frequency')
         print('2 -- Alpha Tag')
@@ -122,7 +124,7 @@ class Menu:
         print('Select Item To Edit')
 
 class Logos:
-    def MaLo():
+    def main_logo():
         print("TEN-TEC Paragon Serial Interface Control Program")
         print("Copyright 1988")
         print("By")
