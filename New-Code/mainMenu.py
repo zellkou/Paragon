@@ -1,9 +1,6 @@
+import repeatedPrints
+
 #Menu Class
-
-
-maMe = "M -- Return To Main Menu"
-seDe = "Select Desired Function"
-
 
 class Menu:
 
@@ -27,7 +24,7 @@ class Menu:
         print('X -- Exit')
         print('Left Cursor -- Frequency Tune Down')
         print('Right Cursor -- Frequency Tune Up')
-        print(SeDe)
+        repeatedPrints.input_not_recognized()
     def mode_menu():  #Main Menu 2
         print('Mode Select Menu')
         print('Current Mode = curModvar') #need variable here
@@ -38,7 +35,7 @@ class Menu:
         print('5 -- AM')
         print('6 -- FM')
         print('7 -- RTTY')
-        print(M)
+        repeatedPrints.return_to_main_menu()
         print('Select Desired Mode')
     def filter_menu():  #Main Menu 3
         print('Crystal Filter Select Menu')
@@ -48,7 +45,7 @@ class Menu:
         print('3 -- 1.8 Khz')
         print('4 -- 0.50 Khz')
         print('5 -- 0.25 Khz')
-        print(M)
+        repeatedPrints.return_to_main_menu()
         print('Select Desired Filter')
     def aux_display_menu():  #Main Menu 5
         print('Aux. Display Menu')
@@ -56,15 +53,15 @@ class Menu:
         print('1 -- Time')
         print('2 -- Alpha Tag')
         print('3 -- Date')
-        print(M)
+        repeatedPrints.return_to_main_menu()
         print('Select Desired Aux. Display')
     def vfo_menu(): #Main Menu 6
         print('VFO Control Functions')
         print('1 -- Change VFOs')
         print('2 -- Set VFOs Equal')
         print('3 -- Change Split Mode')
-        print(M)
-        print(SeDe)
+        repeatedPrints.return_to_main_menu()
+        repeatedPrints.input_not_recognized()
     def memory_menu(): #Main Menu 7
         print('Memory Functions Menu')
         print('1 -- Memory Store')
@@ -72,22 +69,22 @@ class Menu:
         print('3 -- Memory Lockout')
         print('4 -- Memory Clear')
         print('5 -- Memory Tune')
-        print(M)
-        print(SeDe)
+        repeatedPrints.return_to_main_menu()
+        repeatedPrints.input_not_recognized()
     def memory_lock_menu(): #Main Menu 7 #Memory Menu  3
         print('Memory Lock/Unlock Menu')
         print('1 -- Lock Out Selected Memory Channel')
         print('2 -- Unlock Selected Memory Channel')
         print('3 -- Lock Out All Memory Channels')
         print('4 -- Unlock All Memory Channels')
-        print(M)
-        print(SeDe)
+        repeatedPrints.return_to_main_menu()
+        repeatedPrints.input_not_recognized()
     def memory_tune_menu(): # Main Menu 7 #Memory Menu 5
         print('Memory Tune Menu')
         print('Left Cursor -- Memory Tune Down')
         print('Right Cursor -- Memory Tune Up')
-        print(M)
-        print(SeDe)
+        repeatedPrints.return_to_main_menu()
+        repeatedPrints.input_not_recognized()
     def aux_function_menu(): # Main Menu 9
         print('Aux. Functions Select Menu')
         print('1 -- RX Offset curRxoffVar') #need variable here
@@ -101,8 +98,8 @@ class Menu:
         print('9 -- Display Radio Status')
         print('Left Cursor -- unkVar0 Down') #unknown variable 0 I believe it's tuning size 100khz or 1mhz
         print('Right Cursor -- unkVar0 Up') #ditto
-        print(M)
-        print(SeDe)
+        repeatedPrints.return_to_main_menu()
+        repeatedPrints.input_not_recognized()
     def memory_load_menu(): # Main Menu L/S
         print('Memory Load/Save Menu')
         print('1 -- Display Memory Table')
@@ -110,8 +107,8 @@ class Menu:
         print('3 -- Load Paragon Memories')
         print('4 -- Get New Disk File')
         print('5 -- Save Memory Table To Disk')
-        print(M)
-        print(SeDe)
+        repeatedPrints.return_to_main_menu()
+        repeatedPrints.input_not_recognized()
     def memory_edit_menu(): #Main Menu E  #MemLoa 2
         print('Memory Edit Menu')
         print('1 -- Frequency')
@@ -120,7 +117,7 @@ class Menu:
         print('4 -- Crystal Filter')
         print('N -- Next Memory To Edit')
         print('P -- Go To Memory Load/Save Menu')
-        print(M)
+        repeatedPrints.return_to_main_menu()
         print('Select Item To Edit')
 
 class Logos:

@@ -1,10 +1,9 @@
 import os
-from time import sleep
+import time
+import serial
 import mainMenu
 import tuneRoutine
-
-def input_not_recognized():
-    print('Input Not Recognized, Try Again')
+import repeatedPrints
 
 
 class MenuRoutines:
@@ -54,7 +53,7 @@ class MenuRoutines:
         else:
             del main_menu_variable
             input_not_recognized()
-            sleep(5)
+            time.sleep(5)
             main_menu_routine()
 ###########Mode routine
     def mode_routine():
@@ -77,8 +76,8 @@ class MenuRoutines:
             main_menu_routine()
         else:
             del mode_menu_variable
-            input_not_recognized()
-            sleep(5)
+            repeatedPrints.input_not_recognized()
+            time.sleep(5)
             mode_routine()
 ###########filter routine
     def filter_routine():
@@ -100,7 +99,7 @@ class MenuRoutines:
         else:
             del filter_menu_variable
             input_not_recognized()
-            sleep(5)
+            time.sleep(5)
             filter_routine()
 ###########aux display menu routine
     def aux_display_routine():
@@ -121,7 +120,7 @@ class MenuRoutines:
         else:
             del aux_display_menu_variable
             input_not_recognized()
-            sleep(5)
+            time.sleep(5)
             aux_display_routine()
 ##########VFO menu routine
     def vfo_routine():
@@ -142,7 +141,7 @@ class MenuRoutines:
         else:
             del vfo_menu_variable
             input_not_recognized()
-            sleep(5)
+            time.sleep(5)
             vfo_routine()
 ##########Memory menu routine
     def memory_routine():
@@ -168,7 +167,7 @@ class MenuRoutines:
         else:
             del memory_menu_varible
             input_not_recognized()
-            sleep(5)
+            time.sleep(5)
             memory_routine()
 #########memory lockout routine
     def memory_lock_routine():
@@ -191,7 +190,7 @@ class MenuRoutines:
         else:
             del memory_lock_menu_variable
             input_not_recognized()
-            sleep(5)
+            time.sleep(5)
             memory_lock_routine()
 #########memoyr tune routine
     def memory_tune_routine():
@@ -209,7 +208,7 @@ class MenuRoutines:
         else:
             del memory_tune_menu_variable
             input_not_recognized()
-            sleep(5)
+            time.sleep(5)
             memory_tune_routine()
 #######aux function routine
     def aux_function_routine():
@@ -255,7 +254,7 @@ class MenuRoutines:
         else:
             del aux_function_menu_variable
             input_not_recognized()
-            sleep(5)
+            time.sleep(5)
             aux_function_routine()
 #########Mem load/save
     def memory_load_routine():
@@ -288,7 +287,7 @@ class MenuRoutines:
         else:
             del memory_load_menu_variable
             input_not_recognized()
-            sleep(5)
+            time.sleep(5)
             memory_load_routine()
 ##########mem edit routine
     def memory_edit_routine():
@@ -318,5 +317,5 @@ class MenuRoutines:
         else:
             del memory_edit_menu_variable
             input_not_recognized()
-            sleep(5)
+            time.sleep(5)
             memory_edit_routine()
