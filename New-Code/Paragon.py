@@ -35,7 +35,7 @@ while True:
     data0 = ser.read(30)
     if len(data0) == 30:
         # WTF
-        str = str.fromhex(str).decode('utf-8')
+        data1 = stf(data0).decode('hex')
         print('Paragon active', data1)
         sleep(1)
         print('Ready')
@@ -53,4 +53,4 @@ sleep(10)
 os.system('clear')
 
 #call mainmenu Main
-MaiRou()
+routines.main_menu_routine()

@@ -11,28 +11,28 @@ class MenuRoutines:
 
 ###########Main Menu Routine
     def main_menu_routine():
-        main_menu()
+        mainMenu.main_menu()
         main_menu_variable = input()
         if main_menu_variable == '1':
-            enter_frequency_routine() #goto enter freg routine
+            enter_frequency_routine()
         elif main_menu_variable == '2':
-            mode_routine() #goto mode routine
+            mode_routine()
         elif main_menu_variable == '3':
-            filter_routine() #goto filter routine
+            filter_routine()
         elif main_menu_variable == '4':
             print('test passed')
             #goto alpha tag rount #menu still needed
         elif main_menu_variable == '5':
-            aux_display_routine() #goto auxdis routine
+            aux_display_routine()
         elif main_menu_variable == '6':
-            vfo_routine() #goto vfo routine
+            vfo_routine()
         elif main_menu_variable == '7':
-            memory_routine() # goto memory routine
+            memory_routine()
         elif main_menu_variable == '8':
             print('test passed')
             #goto display radio status #menu still needed
         elif main_menu_variable == '9':
-            aux_function_routine() #goto auxfun routine
+            aux_function_routine()
         elif main_menu_variable == 'C' or 'c':
             del main_menu_variable
             os.system('clear')
@@ -47,9 +47,9 @@ class MenuRoutines:
         elif main_menu_variable == 'X' or 'x':
             raise SystemExit
         elif main_menu_variable == '\x1b[D': #left arrow - down
-            tune_freq_down_routine()
+            tuneRoutine.tune_freq_down_routine()
         elif main_menu_variable == '\x1b[C': #right arrow - up
-            tune_freq_up_routine()
+            tuneRoutine.tune_freq_up_routine()
         else:
             del main_menu_variable
             input_not_recognized()
@@ -57,20 +57,20 @@ class MenuRoutines:
             main_menu_routine()
 ###########Mode routine
     def mode_routine():
-        mode_menu()
+        mainMenu.mode_menu()
         mode_menu_variable = input()
         if mode_menu_variable == '1':
-            tune_routine()
+            tuneRoutine.tune_routine()
         elif mode_menu_variable == '2':
-            cw_routine()
+            tuneRoutine.cw_routine()
         elif mode_menu_variable == '3':
-            usb_routine()
+            tuneRoutine.usb_routine()
         elif mode_menu_variable == '4':
-            lsb_routine()
+            tuneRoutine.lsb_routine()
         elif mode_menu_variable == '5':
-            am_routine()
+            tuneRoutine.am_routine()
         elif mode_menu_variable == '6':
-            fm_routine()
+            tuneRoutine.fm_routine()
         elif mode_menu_variable == 'M' or 'm':
             del mode_menu_variable
             main_menu_routine()
@@ -81,18 +81,18 @@ class MenuRoutines:
             mode_routine()
 ###########filter routine
     def filter_routine():
-        filter_menu()
+        mainMenu.filter_menu()
         filter_menu_variable = input()
         if filter_menu_variable == '1':
-            filter_6khz()
+            tuneRoutine.filter_6khz()
         elif filter_menu_variable == '2':
-            filter_24khz
+            tuneRoutine.filter_24khz
         elif filter_menu_variable == '3':
-            filter_18khz()
+            tuneRoutine.filter_18khz()
         elif filter_menu_variable == '4':
-            filter_50khz()
+            tuneRoutine.filter_50khz()
         elif filter_menu_variable == '5':
-            filter_25khz()
+            tuneRoutine.filter_25khz()
         elif filter_menu_variable == 'M' or 'm':
             del filter_menu_variable
             main_menu_routine()
@@ -103,7 +103,7 @@ class MenuRoutines:
             filter_routine()
 ###########aux display menu routine
     def aux_display_routine():
-        aux_display_menu()
+        mainMenu.aux_display_menu()
         aux_display_menu_variable = input()
         if aux_display_menu_variable == '1':
             print('test passed')
@@ -124,7 +124,7 @@ class MenuRoutines:
             aux_display_routine()
 ##########VFO menu routine
     def vfo_routine():
-        vfo_menu()
+        mainMenu.vfo_menu()
         vfo_menu_variable = input()
         if vfo_menu_variable == '1':
             print('test passed')
@@ -145,7 +145,7 @@ class MenuRoutines:
             vfo_routine()
 ##########Memory menu routine
     def memory_routine():
-        memory_menu()
+        mainMenu.memory_menu()
         memory_menu_varible = input()
         if memory_menu_varible == '1':
             print('test passed')
@@ -171,7 +171,7 @@ class MenuRoutines:
             memory_routine()
 #########memory lockout routine
     def memory_lock_routine():
-        memory_lock_menu()
+        mainMenu.memory_lock_menu()
         memory_lock_menu_variable = input()
         if memory_lock_menu_variable == '1':
             print('test passed')
@@ -194,7 +194,7 @@ class MenuRoutines:
             memory_lock_routine()
 #########memoyr tune routine
     def memory_tune_routine():
-        memory_tune_menu()()
+        mainMenu.memory_tune_menu()
         memory_tune_menu_variable = input()
         if memory_tune_menu_variable == '\x1b[D': #left arrow - down
             print('test passed')
@@ -212,7 +212,7 @@ class MenuRoutines:
             memory_tune_routine()
 #######aux function routine
     def aux_function_routine():
-        aux_function_menu()
+        mainMenu.aux_function_menu()
         aux_function_menu_variable = input()
         #current_rx_offset_variable = ?
         #current_tx_offset_variable = ?
@@ -258,7 +258,7 @@ class MenuRoutines:
             aux_function_routine()
 #########Mem load/save
     def memory_load_routine():
-        memory_load_menu()
+        mainMenu.memory_load_menu()
         memory_load_menu_variable = input()
         if memory_load_menu_variable == '1':
             # this is going to need a lot of clean up
@@ -291,7 +291,7 @@ class MenuRoutines:
             memory_load_routine()
 ##########mem edit routine
     def memory_edit_routine():
-        memory_edit_menu()
+        mainMenu.memory_edit_menu()
         memory_edit_menu_variable = input()
         if memory_edit_menu_variable == '1':
             print('test passed')

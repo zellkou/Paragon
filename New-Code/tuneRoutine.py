@@ -1,3 +1,5 @@
+import serial
+
 ###### frequency tuning routines
 class freq:
     def tunUpRou():
@@ -42,14 +44,14 @@ class transMode:
         ser.write('Q')
 ###### filter selection  routines
 class filters:
-    def fil60():
+    def filter_6khz():
         ser.write('R')
-    def fil24():
+    def filter_24khz():
         ser.write('S')
-    def fil18():
+    def filter_18khz():
         ser.write('T')
-    def fil50():
+    def filter_50khz():
         ser.write('U')
-    def fil25():
+    def filter_25khz():
         ser.write('V')
 
