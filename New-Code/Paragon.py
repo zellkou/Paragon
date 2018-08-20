@@ -14,11 +14,11 @@ os.system('ls /dev/tty*S*')
 print('Choose Serial Port')
 
 #input saved here
-serVar = input()
+serial_port_variable = input()
 
 #Open Serial Port
 ser = serial.Serial(
-    port=serVar,
+    port=serial_port_variable,
     baudrate=1200,
     bytesize=serial.EIGHTBITS,
     parity=serial.PARITY_NONE,
@@ -29,27 +29,21 @@ ser = serial.Serial(
     write_timeout=2,
     inter_byte_timeout=None,
     exclusive=True
+    encoding=ASCII
 )
 
 while True:
     data0 = ser.read(30)
     if len(data0) == 30:
         # WTF
-        data1 = stf(data0).decode('hex')
+        data1 = (data0.decode('hex'))
         print('Paragon active', data1)
-        sleep(1)
         print('Ready')
     else:
         print('No connection, check cable. Exiting')
         raise SystemExit
 
 #clear screen before logo
-os.system('clear')
-
-#call mainmenu MaLo
-sleep(10)
-
-#clear sceen before main menu
 os.system('clear')
 
 #call mainmenu Main
