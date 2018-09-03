@@ -32,12 +32,15 @@ ser = serial.Serial(
     encoding=ASCII
 )
 
+data0 = 0
+data1 = 1
+
 while True:
     data0 = ser.read(30)
-    if len(data0) == 30:
-        # WTF
+    if len(data0) == 60:
         data1 = (data0.decode('hex'))
-        print('Paragon active', data1)
+        print('Paragon active')
+        print(data1)
         print('Ready')
     else:
         print('No connection, check cable. Exiting')
