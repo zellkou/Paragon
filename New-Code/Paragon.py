@@ -28,7 +28,7 @@ ser = serial.Serial(
     dsrdtr=False,
     write_timeout=2,
     inter_byte_timeout=None,
-    exclusive=True
+    exclusive=True,
     encoding=ASCII
 )
 
